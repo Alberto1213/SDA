@@ -1,0 +1,33 @@
+README TEMA3 SDA
+RADU ALBERTO-MIHAI 331CC
+
+Am rezolvat doar cerinta a de la prima problema.In rezolvarea problemei am implementat urmatoarele structuri/functii.
+
+Structuri:
+
+1.o structura de nod pentru nodurile din lista de adiacenta a fiecarui nod din graf, cu campuri pentru index-ul nodului, costul nodului, si adresa urmatorului nod.
+
+2.o structura de lista care pointeaza la adresa capului de lista.
+
+3.o structura de graf, care contine numarul de noduri, muchii, si un array de liste de adiacenta.
+
+Functii:
+
+1. functia new_node care initializeaza un nod nou cu un cost si index dati ca parametri
+
+2. functia init_graf care initializeaza graful, avand ca parametri graful ce trebuie initializat, numarul de muchii si noduri, astfel ca se aloca memorie pentru vectorul de liste de adiacenta,
+ca mai departe sa se aloce memorie pentru fiecare head al fiecarei liste de adiacenta.
+
+3.functia check_node care verifica daca un nod dat ca parametru printr un char* se afla intr un array de char uri sau nu.
+
+4.functia get_index, procedeaza in mod asemanator cu check_node, doar ca aceasta gaseste index-ul unui char* intr un array de char*.
+
+5.functia add_edge care adauga muchiile intre  parametri src si dest in listele de adicaenta, la inceputul listei facandu-se adaugarea.
+
+6.functia dfs_util care porneste o parcurgere dfs dintr un nod src dat ca parametru.
+
+7.functia conex, care calculeaza numarul de CC, pornind dfs_util din fiecare nod.
+
+In main am citit mai intai nr de noduri si muchii, ca mai departe sa citesc m linii, sa sparg fiecare linie in 3 char* astfel ca primele doua char* reprezentau nodurile, noduri adaugate intr-un
+array de char* daca nu se aflau deja in array.Mai departecu functia get_index luam index ul nodurilor citite anterior si adaugam muchia folosit add_edge in graf.Dupa ce am terminat de adaugat muchiile,
+am folosit functia conex pentru a gasi numarul de componenete conexe din gradul dat si l am afisat in fisierul tema3.out .

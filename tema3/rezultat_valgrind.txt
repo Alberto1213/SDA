@@ -1,0 +1,12 @@
+==26756== 864 (160 direct, 704 indirect) bytes in 10 blocks are definitely lost in loss record 2 of 5
+==26756==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==26756==    by 0x109344: new_node (in /home/student/Desktop/SDA/Teme/tema3/tema3)
+==26756==    by 0x10953D: add_edge (in /home/student/Desktop/SDA/Teme/tema3/tema3)
+==26756==    by 0x109A66: main (in /home/student/Desktop/SDA/Teme/tema3/tema3)
+==26756== 
+==26756== 1,632 (320 direct, 1,312 indirect) bytes in 20 blocks are definitely lost in loss record 5 of 5
+==26756==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==26756==    by 0x109344: new_node (in /home/student/Desktop/SDA/Teme/tema3/tema3)
+==26756==    by 0x10952A: add_edge (in /home/student/Desktop/SDA/Teme/tema3/tema3)
+==26756==    by 0x109A66: main (in /home/student/Desktop/SDA/Teme/tema3/tema3)
+==26756== 
