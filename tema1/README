@@ -1,0 +1,21 @@
+RADU ALBERTO MIHAI 331CC
+
+In implementarea temei am folosit 4 fisiere sursa, astfel:
+
+1.Un fisier pentru functionalitatiile stivei, unde am implementat functii pentru pop, push, peek, new_node si init.Stiva va retine date de tip init.
+
+2.Un fisier pentru functionalitatiile cozii, unde am implementat functii pentru init, new_node, enqueue, dequeue.Coada va retine date de tip char*, pentru comenzile de tip UPDATE.
+
+3.Un fisier pentru operatiile cerute in tema relizate pe o lista dublu inlantuita cu santinela.Am implementat functii pentru new_node care imi returneaza un nod nou creat, pentru initializarea 
+unei liste dublu inlantuite, unde primul nod retine mereu '#'.De asemenea, am implementat functii pentru write c care imi modifica caracaterul retinut in nodul curent, pentru move left/right
+care imi muta nodul curent o pozitie la stanga/dreapta, pentru move_left/right_char c, care se va deplasa prin lista pana cand se gaseste un nod ce contine caracaterul dat ca parametru,iar in
+cazul in care ne aflam pe primul nod, functia move_left_char va afisa eroare, iar in cazul ne aflam pe ultimul nod, functia move_right_char va creea un nou nod, pentru insert left/right c, 
+functii care imi insereaza nod nou la stanga/dreapta celui curent, modificand adecvat indexul nodului curent.Functiile de tip show/show_current au fost implementate pentru a afisa lista respectiv
+nodul curent din lista.Functiile undo/redo au fost implementate tinand cont de idexul pozitiei anterioare pe care a fost nodul curent, index retinut in stivele undo, sau in redo dupa ce s a executa
+macar o operatie de tip undo, mai departe ne deplsam in lista pana cand ajungeam la pozitia retinunta in varful stivei undo/redo, mutam nodul curent pe pozitia nou ajunsa, iar apoi eliminam 
+varful stivei.
+
+4.Un fisier main unde am folosti o coada pentru retinerea operatiile de tip UPDATE, o lista dubla inlantuita pentru operatiile ce trebuie executate, si doua cozi undo/redo pentru operatiile
+undo/redo.Citim din fisier linile care contin operatiile, iar daca intalnim o operatie de tip UPDATE o retinem in coada, daca intalnim o operatie EXECUTE, in fucntie de varful cozii, apelam 
+functia care executa operatia retinuta in varful cozii, iar apoi eliminam varful.Daca se citeste o operatie de tip undo/redo apelam functiile undo/redo, iar daca se citeste o operatie de tip
+query aplecam functia necesata pentru afisarea listei sau a nodului curent.
