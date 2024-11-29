@@ -39,37 +39,34 @@ void append(Node **l, int x)
         *l = new_node;
     }
 }
-void f1(Node *list)
+
+void f3(Node *list)
 {
-    Node *temp = list;
-    int idx = 1;
-    while(temp->next != NULL)
+    Node *temp1 = list;
+    Node *temp2 = list;
+
+    while(temp1->next != NULL && temp1->next->next != NULL)
     {
-        if(temp->val % 2 == temp->next->val % 2)
-        {
-            printf("(%d, %d", idx, idx+1);
-            printf("): %d %d", temp->val, temp->next->val);
-            printf("\n");
-        }
-        idx++;
-        temp = temp -> next;
+        temp1 = temp1->next->next;
+        temp2 = temp2->next;
     }
+    printf("%d", temp2->val);
 }
 int main()
 {
-   Node *list;
-   init(&list);
-   append(&list,14);
-   append(&list,6);
-   append(&list,9);
-   append(&list,20);
-   append(&list,10);
-   append(&list,2);
-   append(&list,7);
-   append(&list,6);
-   append(&list,4);
-   print(list);
-   printf("\n");
-   f1(list);
-   return 0;
+    Node *list;
+    init(&list);
+
+    append(&list,9);
+    append(&list,8);
+    append(&list,7);
+    append(&list,6);
+    append(&list,5);
+    append(&list,4);
+    append(&list,3);
+    append(&list,2);
+    append(&list,1);
+
+    f3(list);
 }
+
