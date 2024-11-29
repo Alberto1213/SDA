@@ -9,8 +9,7 @@ typedef struct node
 
 typedef struct list
 {
-    struct node *first;
-    struct node *last;
+    struct node *santinela; 
 }list;
 
 struct node* new_node(int x)
@@ -23,28 +22,30 @@ struct node* new_node(int x)
 void init_list(list **l)
 {
     (*l) = malloc(sizeof(list));
-    (*l)->first = NULL;
-    (*l)->last = NULL;
+    (*l)->santinela = malloc(sizeof(node));
+    (*l)->santinela->next = (*l)->santinela;
 }
 
 void add(list **l, int x)
 {
     node *new = new_node(x);
-    if((*l)->first == NULL)
+    if((*l)->santinela->next == NULL)
     {
-        (*l)->first = new;
-        (*l)->first->next = (*l)->last;
-        (*l)->last = (*l)->first;
+        (*l)->santinela->next = new;
+        new->next = (*l)->santinela;
     }
     else
     {
-        new->next = (*l)->first;
-        (*l)->last->next = new;
-        (*l)->last = new;
+        node *temp = (*l)->santinela->next;
+        while(temp->next != (*l)->santinela)
+            temp = temp->next;
+
+        temp->next = new;
+        new->next = (*l)->santinela;     
     }
 }
 
-void find(list *l, int x)
+/*void find(list *l, int x)
 {
     int cnt = 0;
     node *temp = l->first;
@@ -57,7 +58,7 @@ void find(list *l, int x)
     if(temp->val == x)
         cnt++;
     printf("%d", cnt);
-}
+}*/
 
 int main()
 {
@@ -68,12 +69,7 @@ int main()
     add(&l,4);
     add(&l,5);
     add(&l,6);
-    add(&l,5);
-    add(&l,6);
-    add(&l,5);
-    add(&l,6);
-    add(&l,5);
-    add(&l,6);
-    find(l,6);
+    //find(l,6);
+    printf("%d", l->santinela->next->next->next->next->next->val);
     return 0;
 }

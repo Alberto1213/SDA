@@ -10,7 +10,6 @@ typedef struct node
 typedef struct list
 {
     struct node *first;
-    struct node *last;
 }list;
 
 struct node* new_node(int x)
@@ -24,7 +23,6 @@ void init_list(list **l)
 {
     (*l) = malloc(sizeof(list));
     (*l)->first = NULL;
-    (*l)->last = NULL;
 }
 
 void add(list **l, int x)
@@ -33,18 +31,20 @@ void add(list **l, int x)
     if((*l)->first == NULL)
     {
         (*l)->first = new;
-        (*l)->first->next = (*l)->last;
-        (*l)->last = (*l)->first;
+        (*l)->first->next = (*l)->first;
     }
     else
     {
-        new->next = (*l)->first;
-        (*l)->last->next = new;
-        (*l)->last = new;
+        node *temp = (*l)->first;
+        while(temp->next != (*l)->first)
+            temp = temp->next;
+        
+        temp->next = new;
+        new->next = (*l)->first;    
     }
 }
 
-void find(list *l, int x)
+/*void find(list *l, int x)
 {
     int cnt = 0;
     node *temp = l->first;
@@ -57,7 +57,7 @@ void find(list *l, int x)
     if(temp->val == x)
         cnt++;
     printf("%d", cnt);
-}
+}*/
 
 int main()
 {
@@ -68,12 +68,8 @@ int main()
     add(&l,4);
     add(&l,5);
     add(&l,6);
-    add(&l,5);
-    add(&l,6);
-    add(&l,5);
-    add(&l,6);
-    add(&l,5);
-    add(&l,6);
-    find(l,6);
+    
+    //find(l,6);
+    printf("%d", l->first->next->next->next->val);
     return 0;
 }
